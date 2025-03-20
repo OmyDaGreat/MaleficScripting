@@ -1,0 +1,52 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:xyz.malefic.scripting.components////PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/index.html
+$dokka.location:xyz.malefic.scripting.components//promptCheckbox/xyz.malefic.scripting.KInquirer#kotlin.String#kotlin.collections.List[kotlin.String]#kotlin.String#kotlin.Int#kotlin.Int#kotlin.Int#xyz.malefic.scripting.components.CheckboxViewOptions/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/prompt-checkbox.html
+$dokka.location:xyz.malefic.scripting.components//promptCheckboxObject/xyz.malefic.scripting.KInquirer#kotlin.String#kotlin.collections.List[xyz.malefic.scripting.core.Choice[TypeParam(bounds=[kotlin.Any?])]]#kotlin.String#kotlin.Int#kotlin.Int#kotlin.Int#xyz.malefic.scripting.components.CheckboxViewOptions/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/prompt-checkbox-object.html
+$dokka.location:xyz.malefic.scripting.components//promptConfirm/xyz.malefic.scripting.KInquirer#kotlin.String#kotlin.Boolean/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/prompt-confirm.html
+$dokka.location:xyz.malefic.scripting.components//promptInput/xyz.malefic.scripting.KInquirer#kotlin.String#kotlin.String#kotlin.String#kotlin.Function1[kotlin.String,kotlin.Boolean]#kotlin.Function1[kotlin.String,kotlin.Boolean]#kotlin.Function1[kotlin.String,kotlin.String]/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/prompt-input.html
+$dokka.location:xyz.malefic.scripting.components//promptInputNumber/xyz.malefic.scripting.KInquirer#kotlin.String#kotlin.String#kotlin.String#kotlin.Function1[kotlin.String,kotlin.String]/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/prompt-input-number.html
+$dokka.location:xyz.malefic.scripting.components//promptInputPassword/xyz.malefic.scripting.KInquirer#kotlin.String#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/prompt-input-password.html
+$dokka.location:xyz.malefic.scripting.components//promptList/xyz.malefic.scripting.KInquirer#kotlin.String#kotlin.collections.List[kotlin.String]#kotlin.String#kotlin.Int#xyz.malefic.scripting.components.ListViewOptions/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/prompt-list.html
+$dokka.location:xyz.malefic.scripting.components//promptListObject/xyz.malefic.scripting.KInquirer#kotlin.String#kotlin.collections.List[xyz.malefic.scripting.core.Choice[TypeParam(bounds=[kotlin.Any?])]]#kotlin.String#kotlin.Int#xyz.malefic.scripting.components.ListViewOptions/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/prompt-list-object.html
+$dokka.location:xyz.malefic.scripting.components/CheckboxViewOptions///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/-checkbox-view-options/index.html
+$dokka.location:xyz.malefic.scripting.components/CheckboxViewOptions/CheckboxViewOptions/#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/-checkbox-view-options/-checkbox-view-options.html
+$dokka.location:xyz.malefic.scripting.components/CheckboxViewOptions/checked/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/-checkbox-view-options/checked.html
+$dokka.location:xyz.malefic.scripting.components/CheckboxViewOptions/cursor/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/-checkbox-view-options/cursor.html
+$dokka.location:xyz.malefic.scripting.components/CheckboxViewOptions/nonCursor/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/-checkbox-view-options/non-cursor.html
+$dokka.location:xyz.malefic.scripting.components/CheckboxViewOptions/questionMarkPrefix/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/-checkbox-view-options/question-mark-prefix.html
+$dokka.location:xyz.malefic.scripting.components/CheckboxViewOptions/unchecked/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/-checkbox-view-options/unchecked.html
+$dokka.location:xyz.malefic.scripting.components/ListViewOptions///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/-list-view-options/index.html
+$dokka.location:xyz.malefic.scripting.components/ListViewOptions/ListViewOptions/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/-list-view-options/-list-view-options.html
+$dokka.location:xyz.malefic.scripting.components/ListViewOptions/cursor/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/-list-view-options/cursor.html
+$dokka.location:xyz.malefic.scripting.components/ListViewOptions/nonCursor/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/-list-view-options/non-cursor.html
+$dokka.location:xyz.malefic.scripting.components/ListViewOptions/questionMarkPrefix/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.components/-list-view-options/question-mark-prefix.html
+$dokka.location:xyz.malefic.scripting.core////PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/index.html
+$dokka.location:xyz.malefic.scripting.core/Choice///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-choice/index.html
+$dokka.location:xyz.malefic.scripting.core/Choice/Choice/#kotlin.String#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-choice/-choice.html
+$dokka.location:xyz.malefic.scripting.core/Choice/data/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-choice/data.html
+$dokka.location:xyz.malefic.scripting.core/Choice/displayName/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-choice/display-name.html
+$dokka.location:xyz.malefic.scripting.core/Component///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-component/index.html
+$dokka.location:xyz.malefic.scripting.core/Component/isInteracting/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-component/is-interacting.html
+$dokka.location:xyz.malefic.scripting.core/Component/onEvent/#xyz.malefic.scripting.core.KInquirerEvent/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-component/on-event.html
+$dokka.location:xyz.malefic.scripting.core/Component/render/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-component/render.html
+$dokka.location:xyz.malefic.scripting.core/Component/value/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-component/value.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent.CharInput///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/-char-input/index.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent.CharInput/CharInput/#kotlin.Char/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/-char-input/-char-input.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent.CharInput/c/#/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/-char-input/c.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent.ClearScreen///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/-clear-screen/index.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent.KeyPressBackspace///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/-key-press-backspace/index.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent.KeyPressDown///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/-key-press-down/index.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent.KeyPressEnter///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/-key-press-enter/index.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent.KeyPressLeft///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/-key-press-left/index.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent.KeyPressRight///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/-key-press-right/index.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent.KeyPressSpace///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/-key-press-space/index.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent.KeyPressUp///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/-key-press-up/index.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent.NotSupportedChar///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/-not-supported-char/index.html
+$dokka.location:xyz.malefic.scripting.core/KInquirerEvent///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting.core/-k-inquirer-event/index.html
+$dokka.location:xyz.malefic.scripting////PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting/index.html
+$dokka.location:xyz.malefic.scripting/KInquirer///PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting/-k-inquirer/index.html
+$dokka.location:xyz.malefic.scripting/KInquirer/prompt/#xyz.malefic.scripting.core.Component[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/-malefic-scripting/xyz.malefic.scripting/-k-inquirer/prompt.html
+xyz.malefic.scripting
+xyz.malefic.scripting.components
+xyz.malefic.scripting.core

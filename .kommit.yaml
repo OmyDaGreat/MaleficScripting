@@ -1,0 +1,23 @@
+# Comments start with #
+
+# Commit Types
+types:
+  - feat: A new feature
+  - fix: A bug fix
+  - docs: Documentation only changes
+  - refactor: A code change that neither fixes a bug nor adds a feature
+
+# Available Scopes
+scopes:
+  all:
+    - core
+    - ui
+    - api
+    - github
+
+# Configuration Options
+options:
+  allowBreakingChanges:
+    - feat
+    - fix
+    - refactor

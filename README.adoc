@@ -1,0 +1,37 @@
+= KotlinLibraryTemplate
+:toc: left
+:toclevels: 2
+:source-highlighter: highlightjs
+:icons: font
+
+This project is a basic library template for Kotlin that includes everything you need to get started.
+
+== Features
+
+=== Kotlinter
+Includes Kotlinter set up with a basic `.editorconfig` for Jetpack Compose
+
+=== Kermit
+Logging from `co.touchlab:kermit` for ease of use
+
+=== Kommit
+Built-in support for link:https://github.com/OmyDaGreat/Kommit[Kommit], a git commit message generator
+
+=== Version Catalog
+Basic `libs.versions.toml` file in the gradle directory
+
+== Central Portal Publishing
+Courtesy of link:https://github.com/lalakii/central-portal-plus[lalakii's plugin]
+
+[IMPORTANT]
+====
+For publishing to work, four Github secrets must be set up:
+
+* `GPG_KEY_ID`: The ID of the GPG key
+* `GPG_PASSPHRASE`: The passphrase for the GPG key
+* `GPG_PRIVATE_KEY`: The private key for the GPG key
+* `SONATYPE_TOKEN_XML`: The user token for the Sonatype account, similar to the one shown below
+====
+
+.User Token XML
+image::https://camo.githubusercontent.com/cfb3882885b8624093eb7c93ce47f77aae00be504ae71f165b8065cb23cc31b4/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f6c616c616b69692f6c616c616b69692e6769746875622e696f406d61737465722f746f6b656e586d6c2e6a7067[alt="User Token Placement", width=80%]

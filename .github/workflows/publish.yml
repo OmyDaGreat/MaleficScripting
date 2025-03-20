@@ -1,0 +1,121 @@
+name: Publish to Maven Central
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'gradle.properties'
+
+permissions:
+  contents: write
+
+jobs:
+  check_version_change:
+    runs-on: ubuntu-latest
+    outputs:
+      version_changed: ${{ steps.check_version.outputs.changed }}
+      new_version: ${{ steps.check_version.outputs.new_version }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check version change
+        id: check_version
+        run: |
+          git diff -p origin/main~1 origin/main -- gradle.properties > version_diff.txt
+          if grep -q "^+v=" version_diff.txt; then
+            NEW_VERSION=$(grep "^+v=" version_diff.txt | cut -d= -f2)
+            echo "Version changed to $NEW_VERSION"
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          else
+            echo "No version change detected"
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+  publish:
+    needs: check_version_change
+    if: needs.check_version_change.outputs.version_changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+
+      - name: Add user_token.xml
+        run: echo "${{ secrets.SONATYPE_TOKEN_XML }}" > user_token.xml
+
+      - name: Run lint and format checks
+        run: ./gradlew formatAndLintKotlin
+
+      - name: Publish to Maven Central
+        run: ./gradlew publishToCentralPortal
+        env:
+          ORG_GRADLE_PROJECT_signingKeyId: ${{ secrets.GPG_KEY_ID }}
+          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.GPG_PASSPHRASE }}
+          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.GPG_PRIVATE_KEY }}
+
+  create_release:
+    needs: [check_version_change, publish]
+    if: needs.check_version_change.outputs.version_changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Git
+        run: |
+          git config --global --add safe.directory $GITHUB_WORKSPACE
+
+      - name: Get changelog
+        id: changelog
+        run: |
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          if [ "$PREVIOUS_TAG" != "" ]; then
+            git log $PREVIOUS_TAG..HEAD --oneline > changelog.txt
+          else
+            git log --oneline > changelog.txt
+          fi
+          CHANGELOG=$(cat changelog.txt)
+          echo "CHANGELOG<<EOF" >> $GITHUB_ENV
+          echo "$CHANGELOG" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body: |
+            Changes since last release:
+            ```
+            ${{ env.CHANGELOG }}
+            ```
+          tag_name: "v${{ needs.check_version_change.outputs.new_version }}"
+          name: "Release v${{ needs.check_version_change.outputs.new_version }}"
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          generate_release_notes: true
+          make_latest: true

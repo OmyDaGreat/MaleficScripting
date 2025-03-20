@@ -1,37 +1,227 @@
-= KotlinLibraryTemplate
-:toc: left
+= Malefic Scripting
+:toc:
 :toclevels: 2
-:source-highlighter: highlightjs
 :icons: font
+:source-highlighter: highlight.js
 
-This project is a basic library template for Kotlin that includes everything you need to get started.
+This repository is a fork of the original https://github.com/kotlin-inquirer/kotlin-inquirer[Kotlin Inquirer] project. This project aims to update and extend the original one.
 
-== Features
+image::https://raw.githubusercontent.com/kotlin-inquirer/kotlin-inquirer/master/assets/kotlin-inquirer-logo.png[Kotlin Inquirer Logo, 40%, link="https://kotlin-inquirer.github.io/kotlin-inquirer/", align="center"]
 
-=== Kotlinter
-Includes Kotlinter set up with a basic `.editorconfig` for Jetpack Compose
+[link=https://github.com/kotlin-inquirer/kotlin-inquirer/actions/workflows/gradle.yml]
+image:https://github.com/kotlin-inquirer/kotlin-inquirer/actions/workflows/gradle.yml/badge.svg[example workflow]
+[link=https://github.com/kotlin-inquirer/kotlin-inquirer/blob/master/LICENSE]
+image:https://img.shields.io/badge/license-Apache%20V.2-blue.svg[Apache License V.2]
+[link=https://jitpack.io/#kotlin-inquirer/kotlin-inquirer]
+image:https://jitpack.io/v/kotlin-inquirer/kotlin-inquirer.svg[]
+[link=https://codecov.io/gh/kotlin-inquirer/kotlin-inquirer]
+image:https://codecov.io/gh/kotlin-inquirer/kotlin-inquirer/branch/master/graph/badge.svg?token=S4v5ziYYpA[codecov]
+[link=https://github.com/KotlinBy/awesome-kotlin]
+image:https://kotlin.link/awesome-kotlin.svg[Awesome Kotlin Badge]
 
-=== Kermit
-Logging from `co.touchlab:kermit` for ease of use
+* A collection of common interactive command line user interfaces written in https://kotlinlang.org/[Pure Kotlin] inspired by https://github.com/SBoudrias/Inquirer.js[Inquirer.js]
 
-=== Kommit
-Built-in support for link:https://github.com/OmyDaGreat/Kommit[Kommit], a git commit message generator
+image::https://raw.githubusercontent.com/kotlin-inquirer/kotlin-inquirer/master/assets/pizza.gif?raw=true[Kotlin Inquirer Demo, 90%, align="center"]
 
-=== Version Catalog
-Basic `libs.versions.toml` file in the gradle directory
+== 🚀 Run Demo Using https://github.com/holgerbrandl/kscript[kscript]
+Remote scriplet lhttps://raw.githubusercontent.com/kotlin-inquirer/kotlin-inquirer/master/scripts/pizza.kts[pizza.kts]
 
-== Central Portal Publishing
-Courtesy of link:https://github.com/lalakii/central-portal-plus[lalakii's plugin]
+[source]
+----
+kscript https://bit.ly/kotlin-inquirer-pizza
+----
 
-[IMPORTANT]
-====
-For publishing to work, four Github secrets must be set up:
+Or clone it
 
-* `GPG_KEY_ID`: The ID of the GPG key
-* `GPG_PASSPHRASE`: The passphrase for the GPG key
-* `GPG_PRIVATE_KEY`: The private key for the GPG key
-* `SONATYPE_TOKEN_XML`: The user token for the Sonatype account, similar to the one shown below
-====
+[source]
+----
+git clone https://github.com/OmyDaGreat/MaleficScripting.git
+cd MaleficScripting
+kscript ./scripts/pizza.kts
+----
 
-.User Token XML
-image::https://camo.githubusercontent.com/cfb3882885b8624093eb7c93ce47f77aae00be504ae71f165b8065cb23cc31b4/68747470733a2f2f666173746c792e6a7364656c6976722e6e65742f67682f6c616c616b69692f6c616c616b69692e6769746875622e696f406d61737465722f746f6b656e586d6c2e6a7067[alt="User Token Placement", width=80%]
+Or without kscript
+
+[source]
+----
+./gradlew shadowJar
+java -jar example/build/libs/kotlin-pizza.jar
+----
+
+== ☁️ Download
+
+=== Gradle
+
+[source,groovy]
+----
+allprojects {
+  repositories {
+    maven { url 'https://jitpack.io' }
+  }
+}
+----
+
+[source,groovy]
+----
+dependencies {
+  implementation 'com.github.kotlin-inquirer:kotlin-inquirer:0.1.0'
+}
+----
+
+== 📋 Usages
+
+=== Confirm
+
+[source,kotlin]
+----
+val isDelivery: Boolean = KInquirer.promptConfirm(message = "Is this for delivery?", default = false)
+println("Is Delivery: $isDelivery")
+----
+image::https://raw.githubusercontent.com/kotlin-inquirer/kotlin-inquirer/master/assets/confirm.gif?raw=true[Confirm Demo, 90%, align="center"]
+
+=== Input
+
+[source,kotlin]
+----
+val comments: String = KInquirer.promptInput(message = "Any comments on your purchase experience?")
+println("Comments: $comments")
+----
+image::https://raw.githubusercontent.com/kotlin-inquirer/kotlin-inquirer/master/assets/input.gif?raw=true[Input Demo, 90%, align="center"]
+
+=== Input Numbers
+
+[source,kotlin]
+----
+val quantity: BigDecimal = KInquirer.promptInputNumber(message = "How many do you need?")
+println("Quantity: $quantity")
+----
+image::https://raw.githubusercontent.com/kotlin-inquirer/kotlin-inquirer/master/assets/input_numbers.gif?raw=true[Input Numbers Demo, 90%, align="center"]
+
+=== Input Password
+
+[source,kotlin]
+----
+val password: String = KInquirer.promptInputPassword(message = "Enter Your Password:", hint = "password")
+println("Password: $password")
+----
+image::https://raw.githubusercontent.com/kotlin-inquirer/kotlin-inquirer/master/assets/input_password.gif?raw=true[Input Password Demo, 90%, align="center"]
+
+=== Input Password custom mask
+
+[source,kotlin]
+----
+val passwordMasked: String = KInquirer.promptInputPassword(
+    message = "Enter Your Password:",
+    hint = "password",
+    mask = "🤫"
+)
+println("Password: $passwordMasked")
+----
+image::https://raw.githubusercontent.com/kotlin-inquirer/kotlin-inquirer/master/assets/input_password_masked.gif?raw=true[Input Password Custom Mask Demo, 90%, align="center"]
+
+=== List
+
+[source,kotlin]
+----
+val size: String = KInquirer.promptList(message = "What size do you need?", choices = listOf("Large", "Medium", "Small"))
+println("Size: $size")
+----
+image::https://raw.githubusercontent.com/kotlin-inquirer/kotlin-inquirer/master/assets/list.gif?raw=true[List Demo, 90%, align="center"]
+
+=== List with more options
+
+[source,kotlin]
+----
+val continent: String = KInquirer.promptList(
+    message = "Select a continent:",
+    choices = listOf(
+        "Asia",
+        "Africa",
+        "Europe",
+        "North America",
+        "South America",
+        "Australia",
+        "Antarctica",
+    ),
+    hint = "press Enter to pick",
+    pageSize = 3,
+    viewOptions = ListViewOptions(
+        questionMarkPrefix = "🌍",
+        cursor = " 😎 ",
+        nonCursor = "    ",
+    )
+)
+println("Continent: $continent")
+----
+image::https://raw.githubusercontent.com/kotlin-inquirer/kotlin-inquirer/master/assets/list_view_options.gif?raw=true[List with more options Demo, 90%, align="center"]
+
+=== Checkbox
+
+[source,kotlin]
+----
+val toppings: List<String> = KInquirer.promptCheckbox(
+    message = "What about the toppings?",
+    choices = listOf(
+        "Pepperoni and cheese",
+        "All dressed",
+        "Hawaiian",
+    ),
+)
+println("Toppings: $toppings")
+----
+image::https://raw.githubusercontent.com/kotlin-inquirer/kotlin-inquirer/master/assets/checkbox.gif?raw=true[Checkbox Demo, 90%, align="center"]
+
+=== Checkbox with more options
+
+[source,kotlin]
+----
+val colors: List<String> = KInquirer.promptCheckbox(
+    message = "Which colors do you prefer?",
+    choices = listOf(
+        "Red",
+        "Green",
+        "Blue",
+        "Yellow",
+        "Black",
+        "White",
+    ),
+    hint = "pick a color using spacebar",
+    maxNumOfSelection = 3,
+    minNumOfSelection = 2,
+    pageSize = 3,
+    viewOptions = CheckboxViewOptions(
+        questionMarkPrefix = "❓",
+        cursor = " 👉 ",
+        nonCursor = "    ",
+        checked = "✅ ",
+        unchecked = "○ ",
+    )
+)
+println("Colors: $colors")
+----
+image::https://raw.githubusercontent.com/kotlin-inquirer/kotlin-inquirer/master/assets/checkbox_view_options.gif?raw=true[Checkbox with more options Demo, 90%, align="center"]
+
+== 🔮 Roadmap
+
+=== Components
+- [x] Confirm
+- [x] Input
+- [x] Input Numbers
+- [x] Input Password
+- [x] List
+- [x] Checkbox
+- [x] Input validation error message
+- [x] Support Hint
+- [x] Better package name
+- [x] Add examples for `ViewOption`
+- [ ] Support List/Checkbox Fuzzy search
+- [ ] Support List/Checkbox autocomplete
+- [ ] Add DSL support
+- [ ] Consider non static function for prompts
+
+=== Operation
+- [ ] Examples
+- [ ] Logo
+- [x] GIFs
+- [x] codecov
+- [x] Maven Central

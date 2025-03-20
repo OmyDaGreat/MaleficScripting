@@ -26,7 +26,8 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.kermit)
+    implementation(libs.jline)
+    implementation(libs.jansi)
     testImplementation(kotlin("test"))
 }
 

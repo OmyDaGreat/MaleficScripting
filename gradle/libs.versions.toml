@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.1.10"
+kotlin = "2.1.20"
 kotlinter = "5.0.1"
 central = "1.2.8"
 dokka = "2.0.0"
